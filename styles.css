@@ -17,7 +17,7 @@ html, body {
 
 #editor {
     font-family: 'JetBrains Mono';
-    width: calc(100vw - (30vw + 10px));
+    width: calc(100vw - 10px);
     height: calc(100vh - 10px);
     margin-bottom: 0;
     padding-bottom: 0;
@@ -98,43 +98,4 @@ html, body {
     flex: 1;
     background-color: #151515;  
     z-index: 1;
-}
-
-.bottom-bar {
-    z-index: 10000000000000000000000000000000000000000000000000000000000000;
-    background-color: #151515;
-    max-height: 10px;
-    border-top: white solid 1px;
-    width: 98%;
-    position: fixed;
-    margin-top: 0;
-    padding-top: 0;
-    height: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.bottom-bar button {
-    background-color: #0000;
-    outline: none;
-    border: none;
-    z-index: 10000000000000000000000000000000000000000000000000000000000000;
-    background-color: #151515;
-}
-
-.bottom-bar button i.codicon-terminal-cmd {
-    font-size: 24px;
-    margin-left: 10px;
-    width: 10px;
-    z-index: 10000000000000000000000000000000000000000000000000000000000000;
-    background-color: #151515;
-}
-
-.bottom-bar button i.codicon-broadcast {
-    margin-right: 10px;
-    margin-left: 10px;
-    z-index: 10000000000000000000000000000000000000000000000000000000000000;
-    background-color: #151515;
 }

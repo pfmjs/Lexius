@@ -1,0 +1,8 @@
+<div id="preview"></div>
+<script>
+    const preview = document.getElementById('preview')
+    const html = localStorage.getItem("lexius-live-preview") || "<h1>No content to display</h1>";
+    preview.open();
+    preview.write(html);
+    preview.close();
+</script>
