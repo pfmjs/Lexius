@@ -1,7 +1,0 @@
-{
-  "name": "Live Server",
-  "description": "Launch live preview and reload on save",
-  "version": "1.0.0",
-  "entry": "index.js",
-  "icon": "icon.svg"
-}

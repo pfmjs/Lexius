@@ -22,11 +22,13 @@ html, body {
     margin-bottom: 0;
     padding-bottom: 0;
     z-index: 1;
+    border-bottom:  0.1px #d4d4d4 solid;
 }
 
 .Lexius {
     height: calc(100vh - 10px);
     z-index: 1;
+    border-bottom:  0.1px #d4d4d4 solid;
 }
 
 .top-bar {
@@ -36,6 +38,7 @@ html, body {
     margin-bottom: 0;
     padding-bottom: 0;
     z-index: 1;
+    border-bottom:  0.1px #d4d4d4 solid;
 }
 
 .top-bar-main {
@@ -61,6 +64,8 @@ html, body {
 }
 
 .side-bar {
+    border-right:  0.1px #d4d4d4 solid;
+    border-bottom:  0.1px #d4d4d4 solid;
     display: flex;
     flex-direction: column;
     align-items: center; /* center horizontally */
