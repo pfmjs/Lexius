@@ -1,8 +1,0 @@
-* {
-    cursor: url(./images/Modern_Black_Outline_Cursor.svg), default !important;
-    
-}
-
-a, button, [role="button"], .clickable {
-    cursor: url(./images/Modern_Black_Outline_Pointer.svg), pointer !important;
-}
