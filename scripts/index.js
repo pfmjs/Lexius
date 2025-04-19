@@ -1,3 +1,5 @@
+let lang = 'html'
+
 // Initialize Monaco Editor
 require.config({
     paths: {
@@ -8,9 +10,13 @@ require.config({
 require(['vs/editor/editor.main'], function () {
     const editor = monaco.editor.create(document.getElementById('editor'), {
         value: ``,
-        language: 'html',
-        theme: 'MyCustomtheme'
+        language: lang,
+        theme: 'MyCustomtheme',
+        placeholder: "Type '!' for HTML boilerplate", // ✅ Built-in support
+        automaticLayout: true,
     });
+
+    
 
     // Define custom theme
     monaco.editor.defineTheme('myCustomTheme', {
@@ -72,3 +78,65 @@ require(['vs/editor/editor.main'], function () {
         }
     });
 });
+
+// App's internal virtual storage
+const appStorage = {
+    "user": {
+        "index.html": ""
+    }
+};
+
+async function Run() {
+    const html = editor.value
+    const user = localStorage.getItem('user')
+    if (!user) {
+        const username = prompt('Enter a user name');
+        const pass = prompt('Enter a password');
+        localStorage.setItem('user', username)
+    }
+    else {
+        // create a new handle
+        const newHandle = await window.showSaveFilePicker();
+
+        // create a FileSystemWritableFileStream to write to
+        const writableStream = await newHandle.createWritable();
+
+        // write our file
+        await writableStream.write(html);
+
+        // close the file and write the contents to disk.
+        await writableStream.close();
+    }
+}
+
+function search(query) {
+    const content = editor.value || editor.innerText;
+    const matches = [];
+    const regex = new RegExp(query, 'gi');
+    let match;
+
+    while ((match = regex.exec(content)) !== null) {
+        matches.push({ index: match.index, text: match[0] });
+    }
+
+    return matches;
+}
+
+window.addEventListener("resize", () => {
+    editor.layout();
+});
+  
+window.addEventListener("DOMContentLoaded", () => {
+    editor.layout();
+});
+
+const langhtm = 'html'; // or whatever language you want to display
+const langPath = document.getElementById('lang-path');
+const langEl = document.createElement("div");
+const icon = document.createElement("i");
+icon.classList.add("codicon", "codicon-json");
+icon.style.fontSize = '20px'
+const textNode = document.createTextNode(langhtm);
+langEl.appendChild(icon);
+langEl.appendChild(textNode);
+langPath.appendChild(langEl);
